@@ -1,103 +1,111 @@
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [currentTime, setCurrentTime] = useState('');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  // 테이블 데이터를 객체 배열로 정리
+  const tableData = [
+    {
+      year: '2025',
+      title: 'HCI Korea 2025 Creative Award, 소노벨 비발디파크 컨벤션센터',
+      description: '「iMessage: AI 의 특성을 반영한 다차원적 대화 인터페이스」',
+    },
+    {
+      year: '2024',
+      title:
+        '2024 Singapore Design Week «Echoes for Tomorrow», LASALLE College of the Arts',
+      description: "Interactive Media Installation 〈Oh, it's nothing〉",
+    },
+    {
+      year: '2024',
+      title: 'RCA KARTS 협력기획전 «Reverse Alchemy», 명동 온드림 소사이어티',
+      description: 'Interactive Media Installation 〈iMessage〉',
+    },
+    {
+      year: '2023',
+      title: '«랩들이 LAB Coming Day», 아트코리아랩',
+      description: '〈웹으로 실험하는 그래픽 시계〉',
+    },
+    {
+      year: '2022',
+      title: '공공디자인 페스티벌 «길몸삶터», 문화역서울 284',
+      description: '〈기후 위기 대응 메뉴얼〉',
+    },
+    {
+      year: '2022',
+      title: '한국예술종합학교 미술원 복도갤러리 «□로부터의 ○»',
+    },
+    {
+      year: '2020',
+      title: '전주국제영화제 기획전 «100Films 100Posters»',
+      description: '〈우주의 끝〉',
+    },
+  ];
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      setCurrentTime(
+        `${year}-${month}-${day} ${hours}:${minutes}:${seconds} KST`
+      );
+    };
+
+    // 초기 시간 설정
+    updateTime();
+
+    // 1초마다 시간 업데이트
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      <main className="ml-[15vw] relative">
+        <p className="md:max-w-1/3">
+          <figure className="inline-block group">
+            Euna Jang
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/euna2.jpg"
+              alt="profile"
+              width={200}
+              height={200}
+              className="absolute top-0 left-0 z-[-1] scale-0 group-hover:scale-60 transition-transform duration-500 ease-out"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+          </figure>{' '}
+          is a computational designer, researcher, and frontend developer who
+          enjoys playful design. She explores the intersection of emerging
+          technologies and design, creating digital experiences with thoughtful
+          narratives and unexpected interactions. She studied Design at Korea
+          National University of Arts and is currently pursuing a Master's
+          degree at the Graduate School of Culture Technology, KAIST.
+        </p>
+
+        <div className="mt-8">{currentTime}</div>
+
+        <table className="mt-[45dvh] md:ml-[30vw] ml-[20vw] border-collapse">
+          <tbody>
+            {tableData.map((item, index) => (
+              <tr key={index} className="h-auto border-b-12 border-white">
+                <td className="md:w-[10em] w-[5em] align-top">{item.year}</td>
+                <td className="align-top">
+                  <h3 className="inline-block">{item.title}</h3>
+                  <p>{item.description}</p>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
