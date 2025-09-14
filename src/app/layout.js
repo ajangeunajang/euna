@@ -35,6 +35,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="break-keep scrollbar-hide">
+      <head>
+        <link
+          rel="preload"
+          href="/FavoritMonoStd-Regular.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`antialiased`}>{children}</body>
     </html>
   );
