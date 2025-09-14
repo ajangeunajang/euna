@@ -92,7 +92,7 @@ export default function Home() {
 
         <div className="mt-8">{currentTime}</div>
 
-        <table className="mt-[45dvh] md:ml-[30vw] ml-[20vw] border-collapse">
+        <table className="mt-[45vh] md:ml-[30vw] ml-[20vw] border-collapse">
           <tbody>
             {tableData.map((item, index) => (
               <tr key={index} className="h-auto border-b-12 border-white">
