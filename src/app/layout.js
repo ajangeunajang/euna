@@ -34,7 +34,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="break-keep scrollbar-hide">
       <body className={`antialiased`}>{children}</body>
     </html>
   );
