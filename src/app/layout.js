@@ -12,19 +12,19 @@ import './globals.css';
 // });
 
 export const metadata = {
-  title: "Euna's Website!",
+  title: 'Eunas Website!',
   description: 'buy Euna a coffee',
   openGraph: {
     title: 'Euna Jang',
     description: 'buy Euna a coffee',
     url: 'ajangeunajang.com',
-    siteName: "Euna's Website!",
+    siteName: 'Eunas Website!',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: "Euna's Website!",
+        alt: 'Eunas Website!',
       },
     ],
     locale: 'ko_KR',
@@ -35,11 +35,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   );
 }
