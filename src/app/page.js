@@ -70,8 +70,8 @@ export default function Home() {
 
   return (
     <div>
-      <main className="ml-[15vw] relative">
-        <p className="md:max-w-1/3">
+      <main className="ml-[15vw] mr-2 relative">
+        <div className="md:max-w-1/3">
           <figure className="inline-block group">
             Euna Jang
             <Image
@@ -88,7 +88,7 @@ export default function Home() {
           narratives and unexpected interactions. She studied Design at Korea
           National University of Arts and is currently pursuing a Master's
           degree at the Graduate School of Culture Technology, KAIST.
-        </p>
+        </div>
 
         <div className="mt-8">{currentTime}</div>
 
@@ -96,7 +96,7 @@ export default function Home() {
           <tbody>
             {tableData.map((item, index) => (
               <tr key={index} className="h-auto border-b-12 border-white">
-                <td className="md:w-[10em] w-[5em] align-top">{item.year}</td>
+                <td className="md:w-[10em] w-[3.5em] align-top">{item.year}</td>
                 <td className="align-top">
                   <h3 className="inline-block">{item.title}</h3>
                   <p>{item.description}</p>
