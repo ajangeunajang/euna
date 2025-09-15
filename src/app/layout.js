@@ -21,7 +21,7 @@ export const metadata = {
     siteName: 'Eunas Website!',
     images: [
       {
-        url: '/og.png',
+        url: '/og2.png',
         width: 1200,
         height: 630,
         alt: 'Eunas Website!',

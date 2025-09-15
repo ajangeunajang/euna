@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
     },
     {
       year: '2024',
-      title: 'RCA KARTS 협력기획전 «Reverse Alchemy», 명동 온드림 소사이어티',
+      title: 'RCA×KARTS 협력 기획전 «Reverse Alchemy», 명동 온드림 소사이어티',
       description: 'Interactive Media Installation 〈iMessage〉',
     },
     {
@@ -92,7 +93,15 @@ export default function Home() {
 
         <div className="mt-8">{currentTime}</div>
 
-        <table className="mt-[45vh] md:ml-[30vw] ml-[20vw] border-collapse">
+        <ul className="mt-[40vh] flex gap-20">
+          <Link href="https://www.instagram.com/ajangeunajang/" target="_blank">
+            Instagram
+          </Link>
+          <Link href="https://cooperativeblue.com" target="_blank">
+            Design
+          </Link>
+        </ul>
+        <table className="mt-[5vh] md:ml-[30vw] ml-[20vw] border-collapse">
           <tbody>
             {tableData.map((item, index) => (
               <tr key={index} className="h-auto border-b-12 border-white">
