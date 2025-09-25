@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
 // const geistSans = Geist({
@@ -17,7 +16,6 @@ export const metadata = {
   openGraph: {
     title: 'Euna Jang',
     description: 'buy Euna a coffee',
-    url: 'ajangeunajang.com',
     siteName: 'Eunas Website!',
     images: [
       {
@@ -37,7 +35,6 @@ export default function RootLayout({ children }) {
     <html lang="en" className="break-keep scrollbar-hide">
       <head>
         <link
-          rel="preload"
           href="/FavoritMonoStd-Regular.woff"
           as="font"
           type="font/woff"
