@@ -97,7 +97,7 @@ export default function Home() {
           <Link href="https://www.instagram.com/ajangeunajang/" target="_blank">
             Instagram
           </Link>
-          <Link href="https://cooperativeblue.com" target="_blank">
+          <Link href="https://cooperativeblue.kr" target="_blank">
             Design
           </Link>
         </ul>
